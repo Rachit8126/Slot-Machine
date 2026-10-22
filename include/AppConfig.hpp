@@ -4,13 +4,15 @@
 struct SymbolData
 {
     std::string_view name;
-    int weight;
-    int multiplier;
+    uint8_t weight;
+    uint8_t multiplier;
 };
 
 namespace AppConfig
 {
-    inline constexpr int TotalWeight = 20;
+    inline constexpr uint8_t ReelCount;
+
+    inline constexpr uint8_t TotalWeight = 20;
 
     inline constexpr SymbolData CherryData = {.name = "Cherry", .weight = 10, .multiplier = 3};
     inline constexpr SymbolData BellData = {.name = "Bell", .weight = 5, .multiplier = 5};

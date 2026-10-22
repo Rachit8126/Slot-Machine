@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(SlotMachine CXX)
 set(CMAKE_CXX_STANDARD 20)
-add_executable(slot src/main.cpp)
+file(GLOB SOURCES CONFIGURE_DEPENDS src/*.cpp)
+add_executable(slot ${SOURCES})
 target_include_directories(slot PRIVATE include)

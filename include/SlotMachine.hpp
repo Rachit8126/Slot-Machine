@@ -1,13 +1,18 @@
 #pragma once
 #include <Reel.hpp>
+#include <array>
 
 class SlotMachine
 {
 private:
-    constexpr int ReelCount = 3;
+    static constexpr uint8_t ReelCount = 3;
 
-    std::vector<Reel> reels_;
+    using SpinResult = std::array<std::array<SymbolType, 3>, ReelCount>;
+
+    std::array<Reel, ReelCount> reels_;
 
 public:
     SlotMachine();
+
+    SpinResult spin();
 };
