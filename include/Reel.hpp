@@ -12,4 +12,14 @@ private:
 
 public:
     Reel();
+
+	SymbolType getSymbolAt(size_t index) const
+	{
+		return reel_.at(index);
+	}
+
+	size_t getSize() const
+	{
+		return reel_.size();
+	}
 };
