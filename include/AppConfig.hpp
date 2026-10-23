@@ -1,5 +1,6 @@
 #pragma once
 #include <string_view>
+#include <cstdint>
 
 struct SymbolData
 {
@@ -10,7 +11,7 @@ struct SymbolData
 
 namespace AppConfig
 {
-    inline constexpr uint8_t ReelCount;
+    inline constexpr uint8_t ReelCount = 3;
 
     inline constexpr uint8_t TotalWeight = 20;
 
