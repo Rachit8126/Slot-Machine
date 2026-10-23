@@ -1,6 +1,6 @@
 #include "Symbol.hpp"
 
-SymbolData const &Symbol::getSymbolData(SymbolType symbolType)
+AppConfig::SymbolData const &Symbol::getSymbolData(SymbolType symbolType)
 {
     switch (symbolType)
     {

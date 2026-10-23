@@ -1,7 +1,9 @@
 #pragma once
 
 #include <vector>
-#include <Symbol.hpp>
+#include <cstddef>
+
+#include "Symbol.hpp"
 
 class Reel
 {

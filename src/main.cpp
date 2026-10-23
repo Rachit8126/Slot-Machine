@@ -1,13 +1,14 @@
 #include <iomanip>
 #include <iostream>
-#include <SlotMachine.hpp>
+#include <memory>
 
-// Wide enough for the longest symbol name ("Scatter") plus a separating space
+#include "SlotMachine.hpp"
+
 constexpr int SymbolColumnWidth = 8;
 
 int main()
 {
-	SlotMachine* slotMachine = new SlotMachine();
+	std::unique_ptr<SlotMachine> slotMachine = std::make_unique<SlotMachine>();
 
 	while (true)
 	{
@@ -16,6 +17,11 @@ int main()
 		std::cin >> choice;
 
 		if (choice == 0)
+		{
+			break;
+		}
+
+		if (choice != 1)
 		{
 			break;
 		}
@@ -29,7 +35,7 @@ int main()
 				std::cout << std::left << std::setw(SymbolColumnWidth) << Symbol::getSymbolData(j).name;
 			}
 
-			std::cout << std::endl;
+			std::cout << "\n";
 		}
 	}
 

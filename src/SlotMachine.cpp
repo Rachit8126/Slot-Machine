@@ -1,4 +1,3 @@
-
 #include "SlotMachine.hpp"
 
 SlotMachine::SlotMachine() : rngEngine_{ std::random_device{}() }
@@ -8,18 +7,18 @@ SlotMachine::SlotMachine() : rngEngine_{ std::random_device{}() }
 
 SlotMachine::SpinResult SlotMachine::spin()
 {
-	std::uniform_int_distribution<short> dist(0, AppConfig::TotalWeight - 1);
+	std::uniform_int_distribution<size_t> dist(0, reels_[0].getSize() - 1);
 
 	SlotMachine::SpinResult spinResult{};
 
 	for (size_t i = 0; i < AppConfig::ReelCount; i++)
 	{
-		short randomIndex = dist(rngEngine_);
-		spinResult.at(i) = {
-			reels_[i].getSymbolAt(randomIndex - 1 < 0 ? reels_[i].getSize() - 1 : randomIndex - 1),
-			reels_[i].getSymbolAt(randomIndex),
-			reels_[i].getSymbolAt(randomIndex + 1 >= reels_[i].getSize() ? 0 : randomIndex + 1)
-		};
+		size_t randomIndex = dist(rngEngine_);
+		
+		for (size_t j = 0; j < AppConfig::RowCount; j++)
+		{
+			spinResult[j][i] = reels_[i].getSymbolAt((randomIndex + j) % reels_[i].getSize());
+		}
 	}
 
 	return spinResult;

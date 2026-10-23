@@ -14,5 +14,5 @@ class Symbol
 {
 private:
 public:
-    static const SymbolData &getSymbolData(SymbolType symbolType);
+    static const AppConfig::SymbolData &getSymbolData(SymbolType symbolType);
 };
