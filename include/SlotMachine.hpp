@@ -1,7 +1,8 @@
 #pragma once
-#include <Reel.hpp>
 #include <array>
 #include <random>
+
+#include <Reel.hpp>
 
 class SlotMachine
 {

@@ -1,5 +1,9 @@
+#include <iomanip>
 #include <iostream>
 #include <SlotMachine.hpp>
+
+// Wide enough for the longest symbol name ("Scatter") plus a separating space
+constexpr int SymbolColumnWidth = 8;
 
 int main()
 {
@@ -22,7 +26,7 @@ int main()
 		{
 			for (auto& j : i)
 			{
-				std::cout << Symbol::getSymbolData(j).name << " ";
+				std::cout << std::left << std::setw(SymbolColumnWidth) << Symbol::getSymbolData(j).name;
 			}
 
 			std::cout << std::endl;
