@@ -4,7 +4,7 @@
 #include <numeric>
 #include <random>
 
-Reel::Reel()
+Reel::Reel(RngEngine &rng)
 {
     static constexpr std::array<SymbolType, 5> symbolTypes = {
         SymbolType::CHERRY,
@@ -17,8 +17,6 @@ Reel::Reel()
 
     std::vector<size_t> freeIndices(AppConfig::TotalWeight);
     std::iota(freeIndices.begin(), freeIndices.end(), 0);
-
-    std::mt19937 rng{std::random_device{}()};
 
     for (SymbolType type : symbolTypes)
     {

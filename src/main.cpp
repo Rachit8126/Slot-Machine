@@ -28,9 +28,9 @@ int main()
 
 		SlotMachine::SpinResult result = slotMachine->spin();
 
-		for (auto& i : result)
+		for (auto &i : result)
 		{
-			for (auto& j : i)
+			for (auto &j : i)
 			{
 				std::cout << std::left << std::setw(SymbolColumnWidth) << Symbol::getSymbolData(j).name;
 			}

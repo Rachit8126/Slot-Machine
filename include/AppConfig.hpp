@@ -2,14 +2,13 @@
 #include <string_view>
 #include <cstdint>
 
-
 namespace AppConfig
 {
     struct SymbolData
     {
         std::string_view name;
         std::uint8_t weight;
-        std::uint8_t multiplier;
+        std::uint8_t multiplier = 1;
     };
 
     inline constexpr std::uint8_t ReelCount = 3;

@@ -4,16 +4,17 @@
 #include <cstddef>
 
 #include "Symbol.hpp"
+#include "Rng.hpp"
 
 class Reel
 {
-    using ReelVector = std::vector<SymbolType>;
+	using ReelVector = std::vector<SymbolType>;
 
 private:
-    ReelVector reel_;
+	ReelVector reel_;
 
 public:
-    Reel();
+	explicit Reel(RngEngine &rngEngine);
 
 	SymbolType getSymbolAt(size_t index) const
 	{
