@@ -1,18 +1,18 @@
 #include "Symbol.hpp"
 
-AppConfig::SymbolData const &Symbol::getSymbolData(SymbolType symbolType)
+AppConfig::SymbolData const &Symbol::getSymbolData(AppConfig::SymbolType symbolType)
 {
     switch (symbolType)
     {
-    case SymbolType::CHERRY:
+    case AppConfig::SymbolType::CHERRY:
         return AppConfig::CherryData;
-    case SymbolType::BELL:
+    case AppConfig::SymbolType::BELL:
         return AppConfig::BellData;
-    case SymbolType::SEVEN:
+    case AppConfig::SymbolType::SEVEN:
         return AppConfig::SevenData;
-    case SymbolType::SCATTER:
+    case AppConfig::SymbolType::SCATTER:
         return AppConfig::ScatterData;
-    case SymbolType::WILD:
+    case AppConfig::SymbolType::WILD:
         return AppConfig::WildData;
     }
 

@@ -5,6 +5,7 @@
 
 #include "Reel.hpp"
 #include "Rng.hpp"
+#include "AppConfig.hpp"
 
 class SlotMachine
 {
@@ -15,7 +16,7 @@ private:
 public:
     explicit SlotMachine(RngEngine rngEngine = makeSeededEngine());
 
-    using SpinResult = std::array<std::array<SymbolType, AppConfig::ReelCount>, AppConfig::RowCount>;
+    using SpinResult = std::array<std::array<AppConfig::SymbolType, AppConfig::ReelCount>, AppConfig::RowCount>;
 
     SpinResult spin();
 };
