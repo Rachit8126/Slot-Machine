@@ -1,24 +1,25 @@
-#include "Reel.hpp"
-#include "AppConfig.hpp"
 #include <array>
 #include <numeric>
 #include <random>
 
+#include "Reel.hpp"
+#include "Symbol.hpp"
+
 Reel::Reel(RngEngine &rng)
 {
-    static constexpr std::array<SymbolType, 5> symbolTypes = {
-        SymbolType::CHERRY,
-        SymbolType::BELL,
-        SymbolType::SEVEN,
-        SymbolType::WILD,
-        SymbolType::SCATTER};
+    static constexpr std::array<AppConfig::SymbolType, 5> symbolTypes = {
+        AppConfig::SymbolType::CHERRY,
+        AppConfig::SymbolType::BELL,
+        AppConfig::SymbolType::SEVEN,
+        AppConfig::SymbolType::WILD,
+        AppConfig::SymbolType::SCATTER};
 
     reel_.resize(AppConfig::TotalWeight);
 
     std::vector<size_t> freeIndices(AppConfig::TotalWeight);
     std::iota(freeIndices.begin(), freeIndices.end(), 0);
 
-    for (SymbolType type : symbolTypes)
+    for (AppConfig::SymbolType type : symbolTypes)
     {
         const int weight = Symbol::getSymbolData(type).weight;
 

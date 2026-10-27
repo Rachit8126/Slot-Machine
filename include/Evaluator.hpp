@@ -10,18 +10,18 @@ struct LineWin
 {
 	size_t lineIndex;
 	AppConfig::SymbolType symbolType;
-	uint8_t multiplier;
+	uint32_t multiplier;
 };
 
 struct SpinEvaluationResult
 {
 	std::vector<LineWin> lineWins;
-	uint16_t scatterWin;
-	uint16_t totalMultiplier;
+	uint32_t scatterWin;
+	uint32_t totalMultiplier;
 };
 
 class Evaluator
 {
 public:
-	static SpinEvaluationResult evaluate(const SlotMachine::SpinResult&);
+	static SpinEvaluationResult evaluate(const SlotMachine::SpinResult &);
 };

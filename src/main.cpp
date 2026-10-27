@@ -3,6 +3,8 @@
 #include <memory>
 
 #include "SlotMachine.hpp"
+#include "Evaluator.hpp"
+#include "Symbol.hpp"
 
 constexpr int SymbolColumnWidth = 8;
 
@@ -37,6 +39,10 @@ int main()
 
 			std::cout << "\n";
 		}
+
+		SpinEvaluationResult spinResult = Evaluator::evaluate(result);
+
+		std::cout << "Total Win: " << spinResult.totalMultiplier << "\n";
 	}
 
 	return 0;

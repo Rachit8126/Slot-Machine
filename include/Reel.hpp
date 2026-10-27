@@ -3,12 +3,12 @@
 #include <vector>
 #include <cstddef>
 
-#include "Symbol.hpp"
+#include "AppConfig.hpp"
 #include "Rng.hpp"
 
 class Reel
 {
-	using ReelVector = std::vector<SymbolType>;
+	using ReelVector = std::vector<AppConfig::SymbolType>;
 
 private:
 	ReelVector reel_;
@@ -16,7 +16,7 @@ private:
 public:
 	explicit Reel(RngEngine &rngEngine);
 
-	SymbolType getSymbolAt(size_t index) const
+	AppConfig::SymbolType getSymbolAt(size_t index) const
 	{
 		return reel_.at(index);
 	}
