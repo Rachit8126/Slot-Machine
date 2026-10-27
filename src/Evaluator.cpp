@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "Evaluator.hpp"
 
 namespace
@@ -16,7 +18,7 @@ namespace
 	}
 }
 
-SpinEvaluationResult Evaluator::evaluate(const SlotMachine::SpinResult &spinResult)
+SpinEvaluationResult Evaluator::evaluate(const SlotMachine::SpinResult &spinResult, const std::vector<size_t> &activePaylinesIndices)
 {
 	SpinEvaluationResult result{};
 
@@ -39,6 +41,11 @@ SpinEvaluationResult Evaluator::evaluate(const SlotMachine::SpinResult &spinResu
 	// Check with paylines in AppConfig::PayLines
 	for (size_t lineIndex = 0; lineIndex < AppConfig::PayLines.size(); ++lineIndex)
 	{
+		if (std::find(activePaylinesIndices.begin(), activePaylinesIndices.end(), lineIndex) == activePaylinesIndices.end())
+		{
+			continue;
+		}
+
 		const auto &payLine = AppConfig::PayLines[lineIndex];
 
 		// Resolve the line's symbol: the first non-wild symbol (WILD if all are wild)
@@ -83,7 +90,8 @@ SpinEvaluationResult Evaluator::evaluate(const SlotMachine::SpinResult &spinResu
 	}
 
 	// Total
-	result.totalMultiplier = result.scatterWin;
+	result.totalMultiplier = 0;
+
 	for (const auto &win : result.lineWins)
 	{
 		result.totalMultiplier += win.multiplier;

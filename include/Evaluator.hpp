@@ -23,5 +23,5 @@ struct SpinEvaluationResult
 class Evaluator
 {
 public:
-	static SpinEvaluationResult evaluate(const SlotMachine::SpinResult &);
+	static SpinEvaluationResult evaluate(const SlotMachine::SpinResult &, const std::vector<size_t> &);
 };
