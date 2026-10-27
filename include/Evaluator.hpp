@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "AppConfig.hpp"
+#include "SlotMachine.hpp"
 
 struct LineWin
 {
@@ -15,12 +16,12 @@ struct LineWin
 struct SpinEvaluationResult
 {
 	std::vector<LineWin> lineWins;
-	uint32_t scatterWin;
-	uint32_t totalMultiplier;
+	uint16_t scatterWin;
+	uint16_t totalMultiplier;
 };
 
 class Evaluator
 {
 public:
-	static SpinEvaluationResult evaluateSpin(const std::array<std::array<AppConfig::SymbolType, AppConfig::ReelCount>, AppConfig::RowCount> &spinResult);
+	static SpinEvaluationResult evaluate(const SlotMachine::SpinResult&);
 };
